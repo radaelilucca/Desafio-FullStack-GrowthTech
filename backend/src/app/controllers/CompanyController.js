@@ -8,7 +8,7 @@ class CompanyController {
     const users = response.data;
 
     users.map((user) => {
-      compannies.push(user.company.name);
+      compannies.push(user.company);
     });
 
     return res.json(compannies);
