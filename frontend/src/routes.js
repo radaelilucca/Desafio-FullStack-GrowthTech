@@ -1,6 +1,6 @@
 import React from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import history from './services/history'
+
 
 import Login from './pages/Login'
 import NewsFeed from './pages/NewsFeed'

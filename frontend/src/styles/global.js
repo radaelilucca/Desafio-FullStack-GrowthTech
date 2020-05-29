@@ -21,6 +21,9 @@ export default createGlobalStyle`
   }
   body {
     -webkit-font-smoothing: antialiased;
+    display: flex;
+    justify-content: center;
+    align-items: center;
        
   }
 
@@ -42,6 +45,7 @@ export default createGlobalStyle`
     cursor: pointer;
     background: #285CD3;
     transition: 0.2s;
+    border: 0;
 
     &:hover {
       background: ${darken(0.03, '#285CD3')}

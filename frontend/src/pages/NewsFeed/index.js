@@ -2,7 +2,8 @@ import React from 'react';
 import { Container } from './styles';
 
 function NewsFeed() {
-  return <h1>NEWS</h1>;
+  const logegd = localStorage.getItem('loggedCompany')
+  return <h1>{logegd}</h1>;
 }
 
 export default NewsFeed;
