@@ -1,35 +1,51 @@
+import {darken} from 'polished'
 import {createGlobalStyle} from 'styled-components'
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap');
+
 
 * {
     margin: 0;
     padding: 0;
     outline: 0;
     box-sizing: border-box;
+    
   }
   *:focus {
     outline: 0;
   }
   html, body, #root {
-    height: 100%;
+    height: 100%; 
+
   }
   body {
     -webkit-font-smoothing: antialiased;
-    background: #F0F0F0;
+       
+  }
+
+  .container {
+    background: #f0f0f0;
   }
   body, input, button {
-    font: 14px 'Roboto', sans-serif;
-  }
+    font: 14px 'Roboto', sans-serif;   
+ }
   a {
     text-decoration: none;
-  }
+    } 
   ul {
     list-style: none;
+    } 
   }
+
   button {
     cursor: pointer;
+    background: #285CD3;
+    transition: 0.2s;
+
+    &:hover {
+      background: ${darken(0.03, '#285CD3')}
+    }
   }
 
 

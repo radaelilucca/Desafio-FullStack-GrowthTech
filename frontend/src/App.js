@@ -7,9 +7,10 @@ import Routes from './routes'
 
 function App() {
   return (
-    <Routes>
+    <>
       <GlobalStyle />
-    </Routes>
+      <Routes />
+    </>
   );
 }
 
