@@ -1,6 +1,11 @@
+import api from "../../services/api";
+
 class UserController {
   async index(req, res) {
-    return res.json({ ok: true });
+    const response = await api.get("/users");
+
+    const users = response.data;
+    return res.json(users);
   }
 }
 

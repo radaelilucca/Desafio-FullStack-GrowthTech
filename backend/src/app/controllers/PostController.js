@@ -1,6 +1,11 @@
+import api from "../../services/api";
+
 class PostController {
   async index(req, res) {
-    return res.json({ ok: true });
+    const response = await api.get("/posts");
+
+    const posts = response.data;
+    return res.json(posts);
   }
 }
 
