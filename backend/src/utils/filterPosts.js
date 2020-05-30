@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import api from "../services/api";
 
 export default async function filterPosts(posts, selectedCompanies) {
