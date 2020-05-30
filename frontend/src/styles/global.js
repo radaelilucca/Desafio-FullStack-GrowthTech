@@ -1,5 +1,5 @@
-import {darken} from 'polished'
-import {createGlobalStyle} from 'styled-components'
+import { darken } from 'polished';
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap');
@@ -17,6 +17,7 @@ export default createGlobalStyle`
   }
   html, body, #root {
     height: 100%; 
+    width: 100%; 
 
   }
   body {
@@ -24,12 +25,11 @@ export default createGlobalStyle`
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #f0f0f0;
        
   }
 
-  .container {
-    background: #f0f0f0;
-  }
+
   body, input, button {
     font: 14px 'Roboto', sans-serif;   
  }
@@ -53,4 +53,4 @@ export default createGlobalStyle`
   }
 
 
-`
+`;
