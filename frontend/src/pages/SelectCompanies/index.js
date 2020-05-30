@@ -23,7 +23,7 @@ function SelectCompanies() {
             <span>Construindo sonhos, mundano vidas, fasenos casd ago</span>
           </div>
         </Company>
-        <Company>
+        <Company selected>
           <img src={logo} alt="EMPRESA" />
           <div className="companyInfos">
             <p>NOME DA EMPRESA</p>
@@ -79,7 +79,7 @@ function SelectCompanies() {
             <span>CATCH FRASE</span>
           </div>
         </Company>
-        <Company selected={false}>
+        <Company selected>
           <img src={logo} alt="EMPRESA" />
           <div className="companyInfos">
             <p>NOME DA EMPRESA</p>

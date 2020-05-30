@@ -9,6 +9,7 @@ export const Container = styled.div`
     font-size: 22px;
     width: 100%;
     margin-left: 38%;
+    color: #41414d;
   }
 
   #confirmButton {
