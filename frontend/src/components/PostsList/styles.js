@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { lighten, darken } from 'polished';
 
 export const Container = styled.div`
-  padding: 25px 5px;
+  padding: 0 5px;
 
   h1 {
     color: #41414d;
@@ -12,8 +12,8 @@ export const Container = styled.div`
 
 export const PostList = styled.div`
   overflow-y: ${(props) => (props.loading ? 'none' : 'scroll')};
-  max-height: 700px;
-  padding: 5px;
+  height: 570px;
+  padding: 0 5px;
 
   ::-webkit-scrollbar {
     width: 6px;

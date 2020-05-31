@@ -33,7 +33,6 @@ function PostsList({ companies }) {
 
   return (
     <Container>
-      <h1>FEED DE NOTÍCIAS</h1>
       {loading ? (
         <h1>LOADING</h1>
       ) : (

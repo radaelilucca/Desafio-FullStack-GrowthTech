@@ -8,9 +8,10 @@ export const Container = styled.div`
   max-width: 100vw;
 
   h1 {
-    font-size: 22px;
-
     color: #41414d;
+    margin-bottom: 18px;
+    align-self: flex-start;
+    margin-left: 18%;
   }
 
   .buttons {

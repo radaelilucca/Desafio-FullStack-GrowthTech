@@ -21,6 +21,7 @@ function NewsFeed() {
   return (
     <Container>
       <Header />
+      <h1>FEED DE NOTÍCIAS</h1>
       <PostsList companies={companies} />
     </Container>
   );
