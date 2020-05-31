@@ -80,7 +80,7 @@ function UserProfile() {
               <div className="infos">
                 <div>
                   <p>company:</p>
-                  <span>{user.name}</span>
+                  <span>{user.company.name}</span>
                 </div>
                 <div>
                   <p>email:</p>
@@ -92,7 +92,7 @@ function UserProfile() {
                 </div>
                 <div>
                   <p>city:</p>
-                  <span>{user.name}</span>
+                  <span>{user.address.city}</span>
                 </div>
                 <div>
                   <p>website:</p>

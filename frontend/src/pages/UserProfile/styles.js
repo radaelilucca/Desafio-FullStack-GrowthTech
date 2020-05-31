@@ -98,8 +98,8 @@ export const ProfileCard = styled.div`
   }
 
   .actButtons {
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 35px;
+    margin-bottom: 35px;
     display: flex;
     justify-content: space-between;
     padding: 0 50px;
