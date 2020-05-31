@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { FaPowerOff, FaUsersCog } from 'react-icons/fa';
 
 import {
@@ -14,6 +15,8 @@ import logo from '../../assets/logoHeader.svg';
 const logged = localStorage.getItem('logged');
 
 function Header() {
+  const history = useHistory();
+
   return (
     <Container>
       <Content>
@@ -24,11 +27,21 @@ function Header() {
         </div>
       </Content>
       <Nav>
-        <SettingsButton>
+        <SettingsButton
+          onClick={() => {
+            history.push('/companies');
+          }}
+        >
           PREFERENCIAS
           <FaUsersCog size={26} />
         </SettingsButton>
-        <LogoutButton color="#fff" />
+        <LogoutButton
+          color="#fff"
+          onClick={() => {
+            localStorage.clear();
+            history.push('/');
+          }}
+        />
       </Nav>
     </Container>
   );

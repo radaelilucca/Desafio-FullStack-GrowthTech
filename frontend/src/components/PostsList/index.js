@@ -7,21 +7,25 @@ import api from '../../services/api';
 
 function PostsList({ companies }) {
   const history = useHistory();
-
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loaded, setLoaded] = useState(false);
 
+  const data = {
+    selectedCompanies: companies,
+  };
   useEffect(() => {
     async function loadPosts() {
-      const response = await api.post('/posts', companies);
+      const response = await api.post('/posts', data);
 
       setPosts(response.data);
 
       setLoading(false);
+      setLoaded(true);
     }
 
     loadPosts();
-  }, []);
+  }, [loaded]);
 
   function handleGoToUser(id) {
     history.push(`/user/profile/${id}`);
@@ -33,7 +37,7 @@ function PostsList({ companies }) {
       {loading ? (
         <h1>LOADING</h1>
       ) : (
-        <PostList>
+        <PostList loading={loading}>
           {posts.map((post) => (
             <Post key={post.id}>
               <User

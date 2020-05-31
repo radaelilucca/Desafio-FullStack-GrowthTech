@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { lighten, darken } from 'polished';
 
 export const Container = styled.div`
-  padding: 25px 0;
+  padding: 25px 5px;
 
   h1 {
     color: #41414d;
@@ -9,9 +10,30 @@ export const Container = styled.div`
   }
 `;
 
-export const PostList = styled.ul``;
+export const PostList = styled.div`
+  overflow-y: ${(props) => (props.loading ? 'none' : 'scroll')};
+  max-height: 700px;
+  padding: 5px;
 
-export const Post = styled.li`
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${lighten(0.45, '#285cd3')};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${lighten(0.2, '#285cd3')};
+    border-radius: 12px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${darken(0.1, '#285cd3')};
+  }
+`;
+
+export const Post = styled.div`
   background: #fff;
   max-width: 800px;
   min-height: 110px;
@@ -23,12 +45,14 @@ export const Post = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 export const User = styled.div`
   display: flex;
 
-  min-width: 300px;
+  min-width: 320px;
   min-height: 100px;
   margin-top: 22px;
   margin-left: 18px;
@@ -38,6 +62,7 @@ export const User = styled.div`
   img {
     height: 70px;
     margin-right: 12px;
+    border-radius: 12px;
   }
   .info {
     display: flex;

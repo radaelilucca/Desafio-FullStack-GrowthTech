@@ -1,51 +1,91 @@
 import React, { useState, useEffect } from 'react';
+
 import { useHistory } from 'react-router-dom';
-import { FaArrowRight } from 'react-icons/fa';
-import { Container, CompaniesList, Company } from './styles';
+import { FaArrowRight, FaTrashAlt } from 'react-icons/fa';
+import {
+  Container,
+  CompaniesList,
+  Company,
+  ConfirmButton,
+  ClearButton,
+} from './styles';
 
 import api from '../../services/api';
 
 import Header from '../../components/Header';
-import fakeLogos from './logos';
 
 function SelectCompanies() {
   const history = useHistory();
-  const [companies, setCompanies] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  function handleSubmit() {
-    setCompanies(['Robel-Corkery']);
-    history.push('/feed');
-  }
-  function addInitial(item) {
+  const [availableCompanies, setAvailableCompanies] = useState([]);
+  const [selectedCompanies, setSelectedCompanies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [companies, setCompanies] = useState([]);
+
+  function addInitialAndSelected(item) {
     item.initial = item.name.charAt(0);
-    console.log(item);
+    item.selected = false;
+    item.id = Math.floor(Math.random() * 101);
   }
+
   useEffect(() => {
     async function loadCompanies() {
       const response = await api.get('/companies');
       const laodedCompanies = response.data;
 
-      laodedCompanies.forEach(addInitial);
+      laodedCompanies.forEach(addInitialAndSelected);
 
-      setCompanies(laodedCompanies);
+      setAvailableCompanies(laodedCompanies);
       setLoading(false);
     }
 
+    function getCompaniesFromLocalStorage() {
+      const hasCompanies = localStorage.getItem('selectedCompanies');
+      if (!hasCompanies) {
+        return;
+      }
+      setCompanies(hasCompanies.split(','));
+    }
+
     loadCompanies();
+    getCompaniesFromLocalStorage();
   }, []);
+
+  function handleSubmit() {
+    localStorage.setItem('selectedCompanies', companies);
+    history.push('/feed');
+  }
+
+  function handleSelectCompany(company) {
+    setSelectedCompanies([...selectedCompanies, company]);
+    setCompanies([...companies, company.name]);
+  }
+
+  function clearSelection() {
+    setSelectedCompanies([]);
+    setCompanies([]);
+    localStorage.removeItem('selectedCompanies');
+  }
 
   return (
     <Container>
       <Header />
       <h1>Para começar, escolha as empresas que deseja seguir:</h1>
+
       {loading ? (
         <h1>LOADING</h1>
       ) : (
         <CompaniesList>
-          {companies.map((company) => (
-            <Company initial={company.initial}>
-              <img src="/fake/logo-c.svg" alt="EMPRESA" />
+          {availableCompanies.map((company) => (
+            <Company
+              key={company.id}
+              selected={!!companies.includes(company.name)}
+              onClick={() => handleSelectCompany(company)}
+            >
+              <img
+                src={`http://localhost:3333/logo-${company.initial}.svg`}
+                alt="EMPRESA"
+              />
               <div className="companyInfos">
                 <p> {company.name} </p>
                 <span>{company.catchPhrase}</span>
@@ -54,10 +94,16 @@ function SelectCompanies() {
           ))}
         </CompaniesList>
       )}
-      <button id="confirmButton" type="button" onClick={handleSubmit}>
-        PROSSEGUIR
-        <FaArrowRight size={22} />
-      </button>
+      <div className="buttons">
+        <ClearButton onClick={clearSelection} type="button" loading={loading}>
+          LIMPAR
+          <FaTrashAlt size={18} />
+        </ClearButton>
+        <ConfirmButton onClick={handleSubmit} type="button" loading={loading}>
+          PROSSEGUIR
+          <FaArrowRight size={18} />
+        </ConfirmButton>
+      </div>
     </Container>
   );
 }

@@ -33,6 +33,7 @@ module.exports = {
       }
     ],
     'import/prefer-default-export': 'off',
+    'no-console': ['error', {allow: ['tron']}],
     'react/state-in-constructor': 'off',
     'react/static-property-placement': 'off',
     'react/jsx-props-no-spreading': 'off',

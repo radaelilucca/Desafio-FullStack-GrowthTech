@@ -1,9 +1,9 @@
-import 'dotenv/config'
+import 'dotenv/config';
 import React from 'react';
-import GlobalStyle from './styles/global'
+import './config/ReactotronConfig';
+import GlobalStyle from './styles/global';
 
-import Routes from './routes'
-
+import Routes from './routes';
 
 function App() {
   return (

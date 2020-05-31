@@ -2,22 +2,22 @@ import api from "../../services/api";
 
 class UserController {
   async index(req, res) {
-    const { selectedCompanies } = req.body;
-    if (!selectedCompanies) {
-      return res.status(404).json({ error: "NOT FOUND" });
-    }
+    const { id } = req.params;
+
     const response = await api.get("/users");
 
     const users = response.data;
 
-    const postUsers = [];
+    let selectedUser = {};
     users.map((user) => {
-      if (selectedCompanies.includes(user.company.name)) {
-        postUsers.push(user);
+      if (user.id == id) {
+        selectedUser = user;
       }
     });
 
-    return res.json(postUsers);
+    console.log(selectedUser);
+
+    return res.json(selectedUser);
   }
 }
 

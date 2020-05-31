@@ -6,7 +6,7 @@ import CompanyController from "./app/controllers/CompanyController";
 
 const routes = Router();
 
-routes.get("/users", UserController.index);
+routes.get("/users/:id", UserController.index);
 routes.post("/posts", PostController.index);
 routes.get("/companies", CompanyController.index);
 
