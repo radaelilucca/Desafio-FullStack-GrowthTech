@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 50px 0;
+  padding: 25px 0;
+
+  h1 {
+    color: #41414d;
+    margin-bottom: 20px;
+  }
 `;
 
 export const PostList = styled.ul``;
@@ -40,7 +45,7 @@ export const User = styled.div`
 
     p {
       font-weight: bold;
-      font-size: 22px;
+      font-size: 20px;
       margin-bottom: 4px;
     }
 
@@ -53,10 +58,11 @@ export const PostContent = styled.div`
   min-height: 110px;
   margin-top: 22px;
   margin-left: 10px;
+  padding: 0 10px;
 
   p {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 18px;
     margin-bottom: 6px;
   }
 `;

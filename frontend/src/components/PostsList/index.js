@@ -1,58 +1,65 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { Container, PostList, Post, User, PostContent } from './styles';
 
 import api from '../../services/api';
 
-import logo from '../../assets/logoempresatest.svg';
+function PostsList({ companies }) {
+  const history = useHistory();
 
-function PostsList() {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadPosts() {
-      const response = await api.get('/posts', {
-        params: {
-          selectedComanies: [
-            'Robel-Corkery',
-            'Keebler LLC',
-            'Considine-Lockman',
-          ],
-        },
-      });
+      const response = await api.post('/posts', companies);
 
       setPosts(response.data);
+
+      setLoading(false);
     }
 
     loadPosts();
-
-    console.log(posts);
   }, []);
+
+  function handleGoToUser(id) {
+    history.push(`/user/profile/${id}`);
+  }
 
   return (
     <Container>
-      <PostList>
-        {posts.map((post) => (
-          <Post key={post.id}>
-            <User>
-              <img
-                src={`https://api.adorable.io/avatars/70/abo${post.id}@adorable.png`}
-                alt="USER"
-              />
-              <div className="info">
-                <p>{post.userId}</p>
-                <span>Romaguera-Laguardian</span>
-                <span>HellSinc Citty</span>
-              </div>
-            </User>
+      <h1>FEED DE NOTÍCIAS</h1>
+      {loading ? (
+        <h1>LOADING</h1>
+      ) : (
+        <PostList>
+          {posts.map((post) => (
+            <Post key={post.id}>
+              <User
+                onClick={() => {
+                  handleGoToUser(post.user.id);
+                }}
+              >
+                <img
+                  src={`https://api.adorable.io/avatars/70/abo${post.user.id}@adorable.png`}
+                  alt="USER"
+                />
+                <div className="info">
+                  <p>{post.user.name}</p>
+                  <span> Company: {post.user.company.name} </span>
+                  <span> {post.user.address.city} </span>
+                </div>
+              </User>
 
-            <PostContent>
-              <p> {post.title} </p>
-              <content>{post.body}</content>
-            </PostContent>
-          </Post>
-        ))}
-      </PostList>
+              <PostContent>
+                <p> {post.title} </p>
+                <content>{post.body}</content>
+              </PostContent>
+            </Post>
+          ))}
+        </PostList>
+      )}
     </Container>
   );
 }

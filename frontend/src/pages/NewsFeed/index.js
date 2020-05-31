@@ -4,14 +4,15 @@ import { Container } from './styles';
 
 import Header from '../../components/Header';
 import PostsList from '../../components/PostsList';
-import logo from '../../assets/logoempresatest.svg';
 
 function NewsFeed() {
+  const companies = {
+    selectedCompanies: ['Robel-Corkery', 'Considine-Lockman'],
+  };
   return (
     <Container>
       <Header />
-      <h1>FEED DE NOTÍCIAS</h1>
-      <PostsList />
+      <PostsList companies={companies} />
     </Container>
   );
 }
