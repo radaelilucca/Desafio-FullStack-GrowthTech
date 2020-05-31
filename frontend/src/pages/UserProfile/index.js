@@ -6,7 +6,7 @@ import { FaMapMarkedAlt, FaPhone, FaPaperPlane, FaGlobe } from 'react-icons/fa';
 import api from '../../services/api';
 
 import wave from '../../assets/wave.svg';
-import gridLoading from '../../assets/gridloading.png';
+// import gridLoading from '../../assets/gridloading.png';
 
 import {
   Container,
@@ -19,6 +19,7 @@ import {
 
 import Header from '../../components/Header';
 import PostsList from '../../components/PostsList';
+import Loading from '../../components/Loading';
 
 function UserProfile() {
   const [user, setUser] = useState({});
@@ -32,7 +33,9 @@ function UserProfile() {
 
       setUser(response.data);
       setCompany(response.data.company.name);
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1200);
     }
 
     getUser();
@@ -43,7 +46,7 @@ function UserProfile() {
       <Header />
       <h1>ATIVIDADES DO USUÁRIO</h1>
       {loading ? (
-        <h1>LOADING</h1>
+        <Loading />
       ) : (
         <Content>
           <ProfileContainer>
@@ -99,7 +102,7 @@ function UserProfile() {
             </ProfileCard>
           </ProfileContainer>
           <PostsContainer>
-            <PostsList companies={company} />
+            <PostsList companies={company} loading={loading} />
           </PostsContainer>
         </Content>
       )}

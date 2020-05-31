@@ -15,8 +15,6 @@ class UserController {
       }
     });
 
-    console.log(selectedUser);
-
     return res.json(selectedUser);
   }
 }

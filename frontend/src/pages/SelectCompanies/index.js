@@ -13,6 +13,7 @@ import {
 import api from '../../services/api';
 
 import Header from '../../components/Header';
+import Loading from '../../components/Loading';
 
 function SelectCompanies() {
   const history = useHistory();
@@ -36,7 +37,10 @@ function SelectCompanies() {
       laodedCompanies.forEach(addInitialAndSelected);
 
       setAvailableCompanies(laodedCompanies);
-      setLoading(false);
+
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
     }
 
     function getCompaniesFromLocalStorage() {
@@ -73,7 +77,7 @@ function SelectCompanies() {
       <h1>Para começar, escolha as empresas que deseja seguir:</h1>
 
       {loading ? (
-        <h1>LOADING</h1>
+        <Loading />
       ) : (
         <CompaniesList>
           {availableCompanies.map((company) => (

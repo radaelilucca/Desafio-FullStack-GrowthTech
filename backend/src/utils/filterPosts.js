@@ -2,7 +2,6 @@
 import api from "../services/api";
 
 export default async function filterPosts(posts, selectedCompanies) {
-  // get all users from server
   const usersResponse = await api.get("/users");
   const users = usersResponse.data;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { FaPowerOff, FaUsersCog } from 'react-icons/fa';
 
 import {
@@ -20,7 +20,9 @@ function Header() {
   return (
     <Container>
       <Content>
-        <img src={logo} alt="API SIMPLES - ME dê minha vaga!" />
+        <Link to="/feed">
+          <img src={logo} alt="API SIMPLES - ME dê minha vaga!" />
+        </Link>
         <div className="welcomeText">
           <span>Bem vinda,</span>
           <p>{logged}</p>

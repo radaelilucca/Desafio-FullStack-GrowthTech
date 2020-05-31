@@ -123,8 +123,7 @@ export const ProfileCard = styled.div`
 export const PostsContainer = styled.div`
   overflow: hidden;
   height: 542px;
-
-  h1 {
+  display: ${(props) => (props.loading ? 'none' : 'block')} h1 {
     display: none;
   }
 `;

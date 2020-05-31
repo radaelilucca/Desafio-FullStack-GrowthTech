@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 
 import { Container, PostList, Post, User, PostContent } from './styles';
 
+import gridLoadingPosts from '../../assets/loadPost.png';
+
 import api from '../../services/api';
 
 function PostsList({ companies }) {
@@ -33,36 +35,32 @@ function PostsList({ companies }) {
 
   return (
     <Container>
-      {loading ? (
-        <h1>LOADING</h1>
-      ) : (
-        <PostList loading={loading}>
-          {posts.map((post) => (
-            <Post key={post.id}>
-              <User
-                onClick={() => {
-                  handleGoToUser(post.user.id);
-                }}
-              >
-                <img
-                  src={`https://api.adorable.io/avatars/70/abo${post.user.id}@adorable.png`}
-                  alt="USER"
-                />
-                <div className="info">
-                  <p>{post.user.name}</p>
-                  <span> Company: {post.user.company.name} </span>
-                  <span> {post.user.address.city} </span>
-                </div>
-              </User>
+      <PostList loading={loading}>
+        {posts.map((post) => (
+          <Post key={post.id}>
+            <User
+              onClick={() => {
+                handleGoToUser(post.user.id);
+              }}
+            >
+              <img
+                src={`https://api.adorable.io/avatars/70/abo${post.user.id}@adorable.png`}
+                alt="USER"
+              />
+              <div className="info">
+                <p>{post.user.name}</p>
+                <span> Company: {post.user.company.name} </span>
+                <span> {post.user.address.city} </span>
+              </div>
+            </User>
 
-              <PostContent>
-                <p> {post.title} </p>
-                <content>{post.body}</content>
-              </PostContent>
-            </Post>
-          ))}
-        </PostList>
-      )}
+            <PostContent>
+              <p> {post.title} </p>
+              <content>{post.body}</content>
+            </PostContent>
+          </Post>
+        ))}
+      </PostList>
     </Container>
   );
 }

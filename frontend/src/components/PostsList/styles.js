@@ -11,7 +11,9 @@ export const Container = styled.div`
 `;
 
 export const PostList = styled.div`
-  overflow-y: ${(props) => (props.loading ? 'none' : 'scroll')};
+  overflow-y: scroll;
+  display: ${(props) => props.loading && 'none'};
+
   height: 570px;
   padding: 0 5px;
 
@@ -20,7 +22,7 @@ export const PostList = styled.div`
   }
 
   ::-webkit-scrollbar-track {
-    background: ${lighten(0.45, '#285cd3')};
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
