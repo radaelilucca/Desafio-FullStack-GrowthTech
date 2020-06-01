@@ -1,8 +1,8 @@
 <h1 align="center">
-  <img src="https://github.com/radaelilucca/Desafio-FullStack-GrowthTech/blob/master/readme-assets/logo.png?raw=true" width=30% />
+  <img src="https://github.com/radaelilucca/Desafio-FullStack-GrowthTech/blob/master/readme-assets/logo.png?raw=true" width=40% />
  </h1>
 
-<h4 align="center">
+<h3 align="center">
    💻  Desafio para vaga de Full Stack DEV na Growth Tech. 💻  
 </h4>
 
@@ -19,7 +19,7 @@
 </p>
 
 </br>
-<h5 align="center">
+<h3 align="center">
   :gear: <a href="#gear-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   💻 <a href="#pager-desafio">Desafio Proposto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;    
   👨‍🏫 <a href="#👨‍🏫-executando">Rodando o Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
