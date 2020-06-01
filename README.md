@@ -22,15 +22,13 @@
 <h5 align="center">
   :gear: <a href="#gear-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   💻 <a href="#pager-desafio">Desafio Proposto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;    
-  👨‍🏫 <a href="#👨‍🏫-executando">Como Executar o Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  👨‍🏫 <a href="#👨‍🏫-executando">Rodando o Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 
   :memo:<a href="#memo-licença">Licença</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   :phone: <a href="#phone-contato">Contato</a>
 </h5>
 
- </br>
- 
-<img src="https://github.com/radaelilucca/Desafio-FullStack-GrowthTech/blob/master/readme-assets/PCUserProfile.png?raw=true" width=990px />
+<img src="https://github.com/radaelilucca/Desafio-FullStack-GrowthTech/blob/master/readme-assets/PCUserProfile.png?raw=true" width=790px />
 
 ## :gear: Tecnologias
 
