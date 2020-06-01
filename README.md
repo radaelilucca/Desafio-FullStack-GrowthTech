@@ -28,7 +28,7 @@
   :phone: <a href="#phone-contato">Contato</a>
 </h5>
 
-<img src="https://github.com/radaelilucca/Desafio-FullStack-GrowthTech/blob/master/readme-assets/PCUserProfile.png?raw=true" width=790px />
+<img src="https://github.com/radaelilucca/Desafio-FullStack-GrowthTech/blob/master/readme-assets/PCUserProfile.png?raw=true" width=690px height=500px />
 
 ## :gear: Tecnologias
 
