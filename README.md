@@ -80,6 +80,18 @@ yarn dev
 Para testes na API, utilize um client de requisições http, como Insomnia ou Postman;
 </h5>
 
+<h3>Rotas Disponíveis:</h3> 
+
+| método | caminho    | recebe                                   | retorna                        |
+|--------|------------|------------------------------------------|--------------------------------|
+| get    | /users/:id |                                          | Usuário de ID informado.       |
+| get    | /companies |                                          | Lista de empresas disponíveis. |
+| post   | /posts     | { selectedCompanies: ['exmp1', 'exmp2']} | Lista de Posts                 |
+
+<h3>Importe o Workspace do Insomnia com um click!</h3> 
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=GrowthTechChallenge-RadaeliLucca&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fradaelilucca%2FDesafio-FullStack-GrowthTech%2Fmaster%2FInsomniaWorkspace.json%3Ftoken%3DAG6TU32HKYZX2WI3JSNLG6C62RHRO)
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
