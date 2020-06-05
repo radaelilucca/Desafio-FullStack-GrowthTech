@@ -49,8 +49,10 @@ function PostsList({ companies }) {
               />
               <div className="info">
                 <p>{post.user.name}</p>
-                <span> Company: {post.user.company.name} </span>
-                <span> {post.user.address.city} </span>
+                <span className="company">
+                  Company: {post.user.company.name}
+                </span>
+                <span> City: {post.user.address.city} </span>
               </div>
             </User>
 

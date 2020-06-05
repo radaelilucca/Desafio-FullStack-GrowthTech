@@ -40,7 +40,7 @@ function SelectCompanies() {
 
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 800);
     }
 
     function getCompaniesFromLocalStorage() {
@@ -48,7 +48,7 @@ function SelectCompanies() {
       if (!hasCompanies) {
         return;
       }
-      setCompanies(hasCompanies.split(','));
+      setSelectedCompanies(hasCompanies.split(','));
     }
 
     loadCompanies();
@@ -56,19 +56,23 @@ function SelectCompanies() {
   }, []);
 
   function handleSubmit() {
-    localStorage.setItem('selectedCompanies', companies);
+    localStorage.setItem('selectedCompanies', selectedCompanies);
     history.push('/feed');
   }
 
-  function handleSelectCompany(company) {
-    setSelectedCompanies([...selectedCompanies, company]);
-    setCompanies([...companies, company.name]);
-  }
+  function handleSelectCompany(name) {
+    const alreadySelected = selectedCompanies.findIndex(
+      (company) => company === name
+    );
 
-  function clearSelection() {
-    setSelectedCompanies([]);
-    setCompanies([]);
-    localStorage.removeItem('selectedCompanies');
+    if (alreadySelected >= 0) {
+      const filteredCompanies = selectedCompanies.filter(
+        (company) => company !== name
+      );
+      setSelectedCompanies(filteredCompanies);
+    } else {
+      setSelectedCompanies([...selectedCompanies, name]);
+    }
   }
 
   return (
@@ -83,8 +87,8 @@ function SelectCompanies() {
           {availableCompanies.map((company) => (
             <Company
               key={company.id}
-              selected={!!companies.includes(company.name)}
-              onClick={() => handleSelectCompany(company)}
+              selected={!!selectedCompanies.includes(company.name)}
+              onClick={() => handleSelectCompany(company.name)}
             >
               <img
                 src={`http://localhost:3333/logo-${company.initial}.svg`}
@@ -98,16 +102,11 @@ function SelectCompanies() {
           ))}
         </CompaniesList>
       )}
-      <div className="buttons">
-        <ClearButton onClick={clearSelection} type="button" loading={loading}>
-          LIMPAR
-          <FaTrashAlt size={18} />
-        </ClearButton>
-        <ConfirmButton onClick={handleSubmit} type="button" loading={loading}>
-          PROSSEGUIR
-          <FaArrowRight size={18} />
-        </ConfirmButton>
-      </div>
+
+      <ConfirmButton onClick={handleSubmit} type="button" loading={loading}>
+        PROSSEGUIR
+        <FaArrowRight size={18} />
+      </ConfirmButton>
     </Container>
   );
 }

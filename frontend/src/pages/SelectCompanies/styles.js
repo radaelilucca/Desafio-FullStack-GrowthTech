@@ -45,6 +45,7 @@ export const Company = styled.div`
 
   .selected {
     background: #c6d7ff;
+    border: 2px solid #285cd3;
   }
 
   img {
