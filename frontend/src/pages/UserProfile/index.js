@@ -13,7 +13,6 @@ import {
   Content,
   ProfileContainer,
   ProfileCard,
-  ProfileHeader,
   PostsContainer,
 } from './styles';
 
@@ -39,7 +38,7 @@ function UserProfile() {
     }
 
     getUser();
-  }, []);
+  });
 
   return (
     <Container>

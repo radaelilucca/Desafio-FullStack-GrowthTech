@@ -4,7 +4,6 @@ import { Container } from './styles';
 
 import Header from '../../components/Header';
 import PostsList from '../../components/PostsList';
-import Loading from '../../components/Loading';
 
 function NewsFeed() {
   const [companies, setCompanies] = useState([]);

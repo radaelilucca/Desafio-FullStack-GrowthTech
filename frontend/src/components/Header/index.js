@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import { FaPowerOff, FaUsersCog } from 'react-icons/fa';
+import { FaUsersCog } from 'react-icons/fa';
 
 import {
   Container,

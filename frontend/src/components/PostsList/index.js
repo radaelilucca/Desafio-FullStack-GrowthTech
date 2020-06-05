@@ -3,8 +3,6 @@ import { useHistory } from 'react-router-dom';
 
 import { Container, PostList, Post, User, PostContent } from './styles';
 
-import gridLoadingPosts from '../../assets/loadPost.png';
-
 import api from '../../services/api';
 
 function PostsList({ companies }) {

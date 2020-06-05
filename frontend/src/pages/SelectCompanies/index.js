@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 import { useHistory } from 'react-router-dom';
-import { FaArrowRight, FaTrashAlt } from 'react-icons/fa';
-import {
-  Container,
-  CompaniesList,
-  Company,
-  ConfirmButton,
-  ClearButton,
-} from './styles';
+import { FaArrowRight } from 'react-icons/fa';
+import { Container, CompaniesList, Company, ConfirmButton } from './styles';
 
 import api from '../../services/api';
 
@@ -21,7 +15,6 @@ function SelectCompanies() {
   const [availableCompanies, setAvailableCompanies] = useState([]);
   const [selectedCompanies, setSelectedCompanies] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [companies, setCompanies] = useState([]);
 
   function addInitialAndSelected(item) {
     item.initial = item.name.charAt(0);
